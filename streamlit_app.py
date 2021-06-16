@@ -24,10 +24,10 @@ def main():
     pic1 = resize("./mary_03.jpg")
     pic2 = resize("./drop-of-water.jpg")
     pic3 = resize("./mary_drop_of_water.jpg")
-    col1, col2, col3 = st.beta_columns(2)
+    col1, col2, col3 = st.beta_columns(3)
     with col1: st.image(pic1, width=WIDTH, height=WIDTH, caption="Original Image")
     with col2: st.image(pic2, width=WIDTH, height=WIDTH, caption="Style Image") 
-    with col2: st.image(pic3, width=WIDTH, height=WIDTH, caption="Generated Image") 
+    with col3: st.image(pic3, width=WIDTH, height=WIDTH, caption="Generated Image") 
     #st.write('Click "Generate Image" on the sidebar to start.')
     st.write("""
         Upload the content image and style image to start.
