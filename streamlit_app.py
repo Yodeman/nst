@@ -45,12 +45,14 @@ def main():
     if st.button("Generate Image"):
         if file1 and file2:
             generate_image(file1, file2)
+        else:
+            st.warning("Ensure you upload both content and style image...😒")
         
 def generate_image(img_1, img_2):
-    st.success("Your art is being generated wait for few seconds...😉")
+    st.success("Your art is being generated wait for few seconds, good stuff sometimes takes time...😉")
     output = nst(img_1, img_2, None, 500)
     output = tensor_pil(output)
-    st.image(output, width=300, caption="your art.")
+    st.image(output, width=WIDTH, caption="your art.")
 
 def tensor_pil(nst_img):
     n_image = nst_img.cpu().clone()
