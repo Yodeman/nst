@@ -1,14 +1,11 @@
 import os
 import torch
 import copy
-#import cv2
 import torch.nn as nn
 import torch.optim as optim
-import matplotlib.pyplot as plt
 import torchvision.models as models
 import torchvision.transforms as transforms
 import torch.nn.functional as F
-#from PIL import Image
 
 device = torch.device("cuda" if torch.cuda.is_available() else 'cpu')
 
@@ -27,7 +24,6 @@ cnn_normalization_std = torch.tensor([0.229, 0.224, 0.225]).to(device)
 
 content_layers_default = ['conv_4']
 style_layers_default = ['conv_1', 'conv_2', 'conv_3', 'conv_4', 'conv_5']
-
 
 def image_loader(image):
     image = Image.fromarray(image)
