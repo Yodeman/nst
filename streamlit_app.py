@@ -44,7 +44,7 @@ def main():
         st.image(f2_img, width=WIDTH, caption="your style image")
     if st.button("Generate Image"):
         if file1 and file2:
-            generate_image(f1_img, f2_img)
+            generate_image(file1, file2)
         
 def generate_image(img_1, img_2):
     output = nst(img_1, img_2, None, 500)
