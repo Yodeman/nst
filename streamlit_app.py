@@ -1,14 +1,6 @@
 import streamlit as st
 import numpy as np
-from PIL import Image
 from utils import *
-
-def resize(img):
-    img = Image.open(img)
-    dim = min(img.size)
-    n_img = img.crop((0, 0, dim, dim))
-    return n_img
-  
 
 def main():
     st.title("Welcome to YourArt 📸")
