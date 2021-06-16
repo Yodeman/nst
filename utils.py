@@ -1,7 +1,7 @@
 import os
 import torch
 import copy
-import cv2
+#import cv2
 import torch.nn as nn
 import torch.optim as optim
 import matplotlib.pyplot as plt
@@ -28,15 +28,6 @@ cnn_normalization_std = torch.tensor([0.229, 0.224, 0.225]).to(device)
 content_layers_default = ['conv_4']
 style_layers_default = ['conv_1', 'conv_2', 'conv_3', 'conv_4', 'conv_5']
 
-
-def resize_save(img_path):
-    img = cv2.imread(img_path)
-    #n_img = cv2.resize(img, None, fx=0.15, fy=0.15, interpolation=cv2.INTER_AREA)
-    new_size = min(img.shape[:2])
-    #cv2.imwrite("cropped_"+os.path.basename(img_path), n_img[0:new_size, 0:new_size])
-    n_img = img[0:new_size, 0:new_size]
-    return cv2.cvtColor(n_img, cv2.COLOR_BGR2RGB)
-  
 
 def image_loader(image):
     image = Image.fromarray(image)
