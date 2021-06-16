@@ -47,7 +47,7 @@ def main():
             generate_image(file1, file2)
         
 def generate_image(img_1, img_2):
-    st.success("Your art is being generated. 😉")
+    st.success("Your art is being generated wait for few seconds...😉")
     output = nst(img_1, img_2, None, 500)
     output = tensor_pil(output)
     st.image(output, width=300, caption="your art.")
