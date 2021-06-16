@@ -66,5 +66,5 @@ def tensor_pil(nst_img):
     return n_image
 
 if __name__ == "__main__":
-    WIDTH = 300
+    WIDTH = 200
     main()
