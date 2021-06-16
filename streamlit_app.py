@@ -25,9 +25,9 @@ def main():
     pic2 = resize("./drop-of-water.jpg")
     pic3 = resize("./mary_drop_of_water.jpg")
     col1, col2, col3 = st.beta_columns(3)
-    with col1: st.image(pic1, width=WIDTH, height=WIDTH, caption="Original Image")
-    with col2: st.image(pic2, width=WIDTH, height=WIDTH, caption="Style Image") 
-    with col3: st.image(pic3, width=WIDTH, height=WIDTH, caption="Generated Image") 
+    with col1: st.image(pic1, width=WIDTH, caption="Original Image")
+    with col2: st.image(pic2, width=WIDTH, caption="Style Image") 
+    with col3: st.image(pic3, width=WIDTH, caption="Generated Image") 
     #st.write('Click "Generate Image" on the sidebar to start.')
     st.write("""
         Upload the content image and style image to start.
@@ -45,11 +45,11 @@ def main():
     file1 = st.file_uploader("Upload original/content image")
     if file1:
         f1_img = resize(file1) #Image.open(file1)
-        st.image(f1_img, width=WIDTH, height=WIDTH, caption="your content image")
+        st.image(f1_img, width=WIDTH, caption="your content image")
     file2 = st.file_uploader("Upload style image")
     if file2:
         f2_img = resize(file2) #Image.open(file2)
-        st.image(f2_img, width=WIDTH, height=WIDTH, caption="your style image")
+        st.image(f2_img, width=WIDTH, caption="your style image")
     if st.button("Generate Image"):
         if file1 and file2:
             generate_image(f1_img, f2_img)
