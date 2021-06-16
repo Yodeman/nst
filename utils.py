@@ -10,7 +10,7 @@ from PIL import Image
 
 device = torch.device("cuda" if torch.cuda.is_available() else 'cpu')
 
-imsize = 512 if torch.cuda.is_available() else 128
+imsize = 512
 
 loader = transforms.Compose([
     transforms.Resize(imsize),
