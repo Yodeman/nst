@@ -25,8 +25,13 @@ cnn_normalization_std = torch.tensor([0.229, 0.224, 0.225]).to(device)
 content_layers_default = ['conv_4']
 style_layers_default = ['conv_1', 'conv_2', 'conv_3', 'conv_4', 'conv_5']
 
+def resize(img):
+    img = Image.open(img)
+    dim = min(img.size)
+    n_img = img.crop((0, 0, dim, dim))
+    return n_img
+
 def image_loader(image):
-    image = Image.fromarray(image)
     image = loader(image).unsqueeze(0)
     return image.to(device, torch.float)
 
@@ -170,10 +175,10 @@ def run_style_transfer(cnn, normalization_mean, normalization_std,
     return input_img
 
 def nst(c_img, s_img, i_img, epochs):
-    content_img = image_loader(resize_save(c_img))
-    style_img = image_loader(resize_save(s_img))
+    content_img = image_loader(resize(c_img))
+    style_img = image_loader(resize(s_img))
     if i_img:
-        input_img = image_loader(resize_save(i_img))
+        input_img = image_loader(resize(i_img))
     else:
         input_img = content_img.clone()
         #input_img =  torch.randn(content_img.data.size(), device=device)
