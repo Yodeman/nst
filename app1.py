@@ -1,8 +1,10 @@
 import os
 import streamlit as st
 import numpy as np
-from PIL import Image
 import googleapiclient.discovery
+from PIL import Image
+from google.api_core.client_options import ClientOptions
+
 
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "paul-nst-project-317322-7ddf893d15e6.json"
 PROJECT = "paul-nst-project" 
