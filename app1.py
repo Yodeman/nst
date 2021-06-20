@@ -83,14 +83,9 @@ def main():
     pic2 = resize("./drop-of-water.jpg")
     pic3 = resize("./mary_drop_of_water.jpg")
     col1, col2, col3 = st.beta_columns(3)
-    with col1:
-        st.image(pic1, width=WIDTH, caption="Original Image")
-    st.write(" + ")
-    with col2:
-        st.image(pic2, width=WIDTH, caption="Style Image") 
-    st.write(" = ")
-    with col3: 
-        st.image(pic3, width=WIDTH, caption="Generated Image") 
+    with col1: st.image(pic1, width=WIDTH, caption="Original Image")
+    with col2: st.image(pic2, width=WIDTH, caption="Style Image") 
+    with col3: st.image(pic3, width=WIDTH, caption="Generated Image") 
     #st.write('Click "Generate Image" on the sidebar to start.')
     st.write("""
         Upload the content image and style image to start.
@@ -115,7 +110,9 @@ def main():
         st.image(f2_img, width=WIDTH, caption="your style image")
     if st.button("Generate Image"):
         if file1 and file2:
-            generate_image(f1_img, f2_img)
+            generate_image(file1, file2)
+        else:
+            st.warning("Ensure you upload both content and style image...😒")
         
 def generate_image(img_1, img_2):
     output = make_prediction(img_1, img_2)
