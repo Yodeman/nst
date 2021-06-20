@@ -18,9 +18,7 @@ def resize(img):
 def make_prediction(c_img, s_img):
     cont_img = np.array(resize(c_img)).tolist()
     style_img = np.array(resize(s_img)).tolist()
-    # Turn tensors into int16 (saves a lot of space, ML Engine has a limit of 1.5MB per request)
-    image = tf.cast(tf.expand_dims(image, axis=0), tf.int16)
-    # image = tf.expand_dims(image, axis=0)
+    
     prediction = predict_json(project=PROJECT,
                          region=REGION,
                          model=MODEL,
@@ -115,6 +113,7 @@ def main():
             st.warning("Ensure you upload both content and style image...😒")
         
 def generate_image(img_1, img_2):
+    st.success("Your art is being generated wait for few seconds, good stuff sometimes takes time...😉")
     output = make_prediction(img_1, img_2)
     #output = tensor_pil(output)
     st.image(output, width=300, caption="your art.")
